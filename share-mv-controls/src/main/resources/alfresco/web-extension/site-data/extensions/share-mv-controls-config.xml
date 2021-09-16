@@ -1,0 +1,21 @@
+<extension>
+    <modules>
+        <module>
+            <id>share-mv-controls - Configuration</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>
+            <configurations>
+                <config>
+                    <forms>
+                        <dependencies>
+                            <css src="/s4hc/components/form/controls/mv-controls.css" />
+                            <js src="/s4hc/components/form/controls/mv-controls.js" />
+                            <js src="/s4hc/components/form/controls/mv-date.js" />
+                            <js src="/s4hc/components/form/controls/mv-textfield.js" />
+                        </dependencies>
+                    </forms>
+                </config>
+            </configurations>
+        </module>
+    </modules>
+</extension>

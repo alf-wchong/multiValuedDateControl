@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="poc:model" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+    <description>Multi-value controls POC model</description>
+    <author>Slobodan Kosarac</author>
+    <version>1.0</version>
+
+    <imports>
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+    </imports>
+
+    <namespaces>
+        <namespace uri="http://www.s4hc.com/model/poc/1.0" prefix="poc" />
+    </namespaces>
+
+    <types>
+        <type name="poc:document">
+            <title>POC Document Type</title>
+            <parent>cm:content</parent>
+            <properties>
+                <property name="poc:sv_text">
+                    <title>Single-value Text</title>
+                    <type>d:text</type>
+                </property>
+                <property name="poc:sv_text_mandatory">
+                    <title>Mandatory Single-value Text</title>
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
+                </property>
+                <property name="poc:sv_date">
+                    <title>Single-value Date</title>
+                    <type>d:date</type>
+                </property>
+                <property name="poc:sv_date_mandatory">
+                    <title>Mandatory Single-value Date</title>
+                    <type>d:date</type>
+                    <mandatory>true</mandatory>
+                </property>
+                <property name="poc:mv_text">
+                    <title>Multi-Value Text</title>
+                    <type>d:text</type>
+                    <multiple>true</multiple>
+                </property>
+                <property name="poc:mv_text_mandatory">
+                    <title>Mandatory Multi-Value Text</title>
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
+                    <multiple>true</multiple>
+                </property>
+                <property name="poc:mv_date">
+                    <title>Multi-Value Date</title>
+                    <type>d:date</type>
+                    <multiple>true</multiple>
+                </property>
+                <property name="poc:mv_date_mandatory">
+                    <title>
+                        Mandatory Multi-Value Date
+                    </title>
+                    <type>d:date</type>
+                    <mandatory>true</mandatory>
+                    <multiple>true</multiple>
+                </property>
+            </properties>
+        </type>
+    </types>
+
+</model>

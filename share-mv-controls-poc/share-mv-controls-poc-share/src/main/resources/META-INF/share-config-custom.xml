@@ -1,0 +1,260 @@
+<alfresco-config>
+
+    <config evaluator="string-compare" condition="DocumentLibrary">
+        <types>
+            <type name="cm:content">
+                <subtype name="poc:document" />
+            </type>
+        </types>
+    </config>
+
+    <config evaluator="string-compare" condition="AdvancedSearch" replace="true">
+        <advanced-search>
+            <forms>
+                <form labelId="search.form.label.cm_content" descriptionId="search.form.desc.cm_content">cm:content</form>
+                <form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
+                <form label="POC Document" description="POC Document Type">poc:document </form>
+            </forms>
+        </advanced-search>
+    </config>
+
+    <config evaluator="node-type" condition="poc:document">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+
+                    <show id="poc:sv_text" />
+                    <show id="poc:sv_text_mandatory" />
+                    <show id="poc:sv_date" />
+                    <show id="poc:sv_date_mandatory" />
+
+                    <show id="poc:mv_text" />
+                    <show id="poc:mv_text_mandatory" />
+                    <show id="poc:mv_date" />
+                    <show id="poc:mv_date_mandatory" />
+                </field-visibility>
+                <appearance>
+                    <field id="cm:name">
+                        <control>
+                            <control-param name="maxLength">255</control-param>
+                        </control>
+                    </field>
+                    <field id="cm:title">
+                        <control template="/org/alfresco/components/form/controls/textfield.ftl" />
+                    </field>
+                    <field id="cm:description">
+                        <control>
+                            <control-param name="activateLinks">true</control-param>
+                        </control>
+                    </field>
+
+                    <set id="sv_field_set" appearance="bordered-panel" label-id="Single-value Fields" />
+                    <field id="poc:sv_text" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:sv_text_mandatory" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:sv_date" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+                    <field id="poc:sv_date_mandatory" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+
+                    <set id="mv_field_set" appearance="bordered-panel" label-id="Multi-value Fields" />
+                    <field id="poc:mv_text" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl">
+                            <control-param name="sort">true</control-param>
+                            <control-param name="allowDuplicates">true</control-param>
+                        </control>
+                    </field>
+                    <field id="poc:mv_text_mandatory" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl">
+                            <control-param name="sort">false</control-param>
+                            <control-param name="allowDuplicates">false</control-param>
+                        </control>
+                    </field>
+                    <field id="poc:mv_date" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl">
+                            <control-param name="sort">true</control-param>
+                            <control-param name="allowDuplicates">false</control-param>
+                        </control>
+                    </field>
+                    <field id="poc:mv_date_mandatory" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl">
+                            <control-param name="sort">false</control-param>
+                            <control-param name="allowDuplicates">true</control-param>
+                        </control>
+                    </field>
+                </appearance>
+            </form>
+            <form id="doclib-simple-metadata">
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+
+                    <show id="poc:sv_text" />
+                    <show id="poc:sv_text_mandatory" />
+                    <show id="poc:sv_date" />
+                    <show id="poc:sv_date_mandatory" />
+
+                    <show id="poc:mv_text" />
+                    <show id="poc:mv_text_mandatory" />
+                    <show id="poc:mv_date" />
+                    <show id="poc:mv_date_mandatory" />
+                </field-visibility>
+                <edit-form template="../documentlibrary/forms/doclib-simple-metadata.ftl" />
+                <appearance>
+                    <field id="cm:name">
+                        <control>
+                            <control-param name="maxLength">255</control-param>
+                        </control>
+                    </field>
+                    <field id="cm:title">
+                        <control template="/org/alfresco/components/form/controls/textfield.ftl" />
+                    </field>
+                    <field id="cm:description">
+                        <control>
+                            <control-param name="activateLinks">true</control-param>
+                        </control>
+                    </field>
+
+                    <set id="sv_field_set" appearance="bordered-panel" label-id="Single-value Fields" />
+                    <field id="poc:sv_text" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:sv_text_mandatory" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:sv_date" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+                    <field id="poc:sv_date_mandatory" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+
+                    <set id="mv_field_set" appearance="bordered-panel" label-id="Multi-value Fields" />
+                    <field id="poc:mv_text" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl">
+                            <control-param name="sort">false</control-param>
+                            <control-param name="allowDuplicates">true</control-param>
+                        </control>
+                    </field>
+                    <field id="poc:mv_text_mandatory" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl">
+                            <control-param name="sort">true</control-param>
+                            <control-param name="allowDuplicates">false</control-param>
+                        </control>
+                    </field>
+                    <field id="poc:mv_date" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl">
+                            <control-param name="sort">false</control-param>
+                            <control-param name="allowDuplicates">false</control-param>
+                        </control>
+                    </field>
+                    <field id="poc:mv_date_mandatory" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl">
+                            <control-param name="sort">true</control-param>
+                            <control-param name="allowDuplicates">true</control-param>
+                        </control>
+                    </field>
+                </appearance>
+            </form>
+            <form id="doclib-inline-edit">
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+
+                    <show id="poc:sv_text" />
+                    <show id="poc:sv_text_mandatory" />
+                    <show id="poc:sv_date" />
+                    <show id="poc:sv_date_mandatory" />
+
+                    <show id="poc:mv_text" />
+                    <show id="poc:mv_text_mandatory" />
+                    <show id="poc:mv_date" />
+                    <show id="poc:mv_date_mandatory" />
+                    <show id="cm:content" force="true" />
+                </field-visibility>
+                <appearance>
+                    <field id="cm:name">
+                        <control>
+                            <control-param name="maxLength">255</control-param>
+                        </control>
+                    </field>
+                    <field id="cm:title">
+                        <control template="/org/alfresco/components/form/controls/textfield.ftl" />
+                    </field>
+                    <field id="cm:description">
+                        <control>
+                            <control-param name="activateLinks">true</control-param>
+                        </control>
+                    </field>
+
+                    <set id="sv_field_set" appearance="bordered-panel" label-id="Single-value Fields" />
+                    <field id="poc:sv_text" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:sv_text_mandatory" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:sv_date" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+                    <field id="poc:sv_date_mandatory" set="sv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+
+                    <set id="mv_field_set" appearance="bordered-panel" label-id="Multi-value Fields" />
+                    <field id="poc:mv_text" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:mv_text_mandatory" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-textfield.ftl" />
+                    </field>
+                    <field id="poc:mv_date" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+                    <field id="poc:mv_date_mandatory" set="mv_field_set">
+                        <control template="/com/s4hc/components/form/controls/mv-date.ftl" />
+                    </field>
+                    <field id="cm:content" label-id="">
+                        <control>
+                            <control-param name="editorAppearance">explorer</control-param>
+                            <control-param name="forceEditor">true</control-param>
+                        </control>
+                    </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+
+    <config evaluator="model-type" condition="poc-document">
+        <forms>
+            <form id="search">
+                <field-visibility>
+                    <show id="cm:name" />
+                    <show id="cm:title" force="true" />
+                    <show id="cm:description" force="true" />
+
+                    <show id="poc:sv_text" />
+                    <show id="poc:sv_text_mandatory" />
+                    <show id="poc:sv_date" />
+                    <show id="poc:sv_date_mandatory" />
+
+                    <show id="poc:mv_text" />
+                    <show id="poc:mv_text_mandatory" />
+                    <show id="poc:mv_date" />
+                    <show id="poc:mv_date_mandatory" />
+                </field-visibility>
+            </form>
+        </forms>
+    </config>
+
+</alfresco-config>

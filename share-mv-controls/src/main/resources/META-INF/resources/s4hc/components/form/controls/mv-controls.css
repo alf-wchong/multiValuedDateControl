@@ -1,0 +1,49 @@
+.mv-field-display {
+    margin: 5px 5px 8px 0;
+    line-break: anywhere;
+}
+
+.mv-field-value {
+    background-color: #e8e8e8;
+    border-radius: 3px;
+    font-size: 90%;
+    margin: 1px 0.5em 1px 0;
+    padding: 3px 8px;
+    line-height: 150%;
+    white-space: nowrap;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.mv-field-value-edit {
+    padding: 3px 8px;
+    font-size: 93%;
+}
+
+.mv-field-value .mv-field-value-remove {
+    color: red;
+    margin-left: 5px;
+    vertical-align: text-bottom;
+}
+
+.mv-field-input-field {
+    display: inline-block;
+}
+
+/* Fixes line height for wrapped lines */
+.mv-field-value::after {
+    content: "";
+    display: inline-block;
+    height: 1.7em;
+}
+
+/* Fixes vertical positioning of inline button */
+.mv-field-input .yui-button.yui-push-button {
+    vertical-align: middle;
+}
+
+/* Limits width when displayed on pop-up form */
+.yui-dialog .form-container .mv-field-display {
+    max-width: 60em;
+}
